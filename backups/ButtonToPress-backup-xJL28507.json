@@ -1,0 +1,14 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "baseHeight": "4",
+            "borderThickness": "2",
+            "buttonHeight": "3",
+            "cornerRadius": "3",
+            "detail": "40",
+            "length": "30",
+            "width": "30"
+        }
+    },
+    "fileFormatVersion": "1"
+}
