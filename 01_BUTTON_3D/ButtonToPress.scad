@@ -5,7 +5,7 @@ baseHeight = 4; //[1:1:11]
 buttonHeight = 3; //[1:1:10]
 borderThickness = 2; //[1:1:4]
 cornerRadius = 4; //[1:1:12]
-detail = 4; //[4:1:100]
+detail = 100; //[4:1:100]
 
 $fn = detail; // niveau détail
 
