@@ -2,14 +2,14 @@
 width = 30; //[1:1:40]
 length = 30; //[1:1:40]
 baseHeight = 4; //[1:1:11]
-buttonHeight = 3;
-borderThickness = 2;
-cornerRadius = 4;
-detail = 40;
+buttonHeight = 3; //[1:1:10]
+borderThickness = 2; //[1:1:4]
+cornerRadius = 4; //[1:1:12]
+detail = 4; //[4:1:100]
 
 $fn = detail; // niveau détail
 
-// module bouton
+    // module bouton
 module floorButton(w, l, hBase, hButton, border, r)
 {
     // base
