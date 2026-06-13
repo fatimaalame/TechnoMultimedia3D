@@ -5,7 +5,7 @@
    viewBox="0 0 1400 1400"
    version="1.1"
    id="svg313"
-   sodipodi:docname="STM essai 2_V2.svg"
+   sodipodi:docname="SVG_Final.svg"
    inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -20,15 +20,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.51144414"
-     inkscape:cx="529.87214"
-     inkscape:cy="714.64305"
+     inkscape:zoom="0.42768476"
+     inkscape:cx="659.36415"
+     inkscape:cy="704.95848"
      inkscape:window-width="1383"
      inkscape:window-height="842"
      inkscape:window-x="0"
      inkscape:window-y="30"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g208" />
+     inkscape:current-layer="svg313" />
   <defs
      id="defs1">
     <rect
@@ -71,6 +71,16 @@
     .seg { rx: 9; ry: 9; }
   </style>
   </defs>
+  <rect
+     x="39.973301"
+     y="42.376644"
+     width="1327.2634"
+     height="1317.65"
+     rx="23.856043"
+     fill="#cfe9fb"
+     id="rect2"
+     style="fill:none;fill-opacity:0;stroke:#124763;stroke-width:1.08043;stroke-opacity:1"
+     inkscape:label="Contour_2" />
   <rect
      x="88"
      y="88"
@@ -1121,7 +1131,7 @@
        inkscape:label="Gare_cornavin"><tspan
          x="759.30432"
          y="557.51337"
-         id="tspan2">Gare cornavin</tspan></text>
+         id="tspan1">Gare cornavin</tspan></text>
     <text
        class="label small"
        x="845.04352"
@@ -2611,16 +2621,6 @@
          inkscape:label="AE_1" />
     </g>
   </g>
-  <rect
-     x="39.973301"
-     y="42.376644"
-     width="1327.2634"
-     height="1317.65"
-     rx="23.856043"
-     fill="#cfe9fb"
-     id="rect2"
-     style="fill:none;fill-opacity:0;stroke:#124763;stroke-width:1.08043;stroke-opacity:1"
-     inkscape:label="Contour_2" />
   <g
      inkscape:groupmode="layer"
      id="layer4"

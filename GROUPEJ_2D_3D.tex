@@ -1,0 +1,263 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% --- Couleurs UNIGE ---
+\definecolor{unigered}{RGB}{190, 30, 45}
+
+% --- Titres ---
+\titleformat{\section}
+  {\large\bfseries\color{unigered}}{\thesection.}{0.5em}{}[\titlerule]
+\titleformat{\subsection}
+  {\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% --- En-tête / pied de page ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Impression 3D \& découpe 2D — Groupe J}
+\fancyhead[R]{\includegraphics[height=0.6cm]{images/logo-unige.png}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ============================================================
+\begin{document}
+
+% --- Page de titre ---
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+  \includegraphics[width=4cm]{images/logo-unige.png}\\[2cm]
+  {\LARGE\bfseries Impression 3D \& découpe 2D}\\[1cm]
+  {\large Alame Fatima \quad \& \quad Sahakyan Mikael}\\[0.4cm]
+  {\large Groupe J}\\[2cm]
+  {\large Printemps 2026}
+  \vfill
+\end{titlepage}
+
+% --- Table des matières ---
+\tableofcontents
+\newpage
+
+% ============================================================
+\section{Présentation générale du projet}
+
+Nous avons produit trois objets :
+
+\begin{enumerate}[label=\Alph*.]
+  \item Un objet 3D intégré dans notre jeu sérieux développé sur Unity : un bouton interactif (\texttt{ButtonToPress}).
+  \item Un objet 3D destiné à l'impression physique : un wagon de train/tram, pièce de jeu inspirée des \textit{Aventuriers du Rail} version Genève.
+  \item Un objet 2D réalisé sur Inkscape : un plateau de jeu reprenant Genève.
+\end{enumerate}
+
+Les deux objets 3D ont été modélisés avec OpenSCAD et possèdent des paramètres modifiables, dont un paramètre dédié aux niveaux de détail.
+
+% ============================================================
+\section{Objet 3D — Bouton interactif (Unity)}
+
+\textbf{Fichiers :} \texttt{01\_BUTTON\_3D / ButtonToPress.scad} \quad|\quad \texttt{ButtonToPress.stl}
+
+\subsection{Description}
+
+Ce bouton interactif est destiné à être intégré dans un jeu sérieux Unity. Il ressemble à un bouton physique, comme ceux d'une manette ou d'une borne de jeu. Il est composé d'une base rectangulaire aux coins arrondis et d'un bouton central surélevé, ce qui donne l'impression qu'il peut être pressé. Les coins arrondis ont été créés avec \texttt{minkowski()}, qui combine un cube avec une forme ronde. Les deux parties ont des couleurs différentes pour mieux distinguer la base du bouton.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{images/pasted-image.jpeg}
+  \caption{Rendu du bouton interactif dans OpenSCAD.}
+\end{figure}
+
+\subsection{Comparaison des niveaux de détail}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-13-59.png}
+    \caption{Niveau de détail bas.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-14-12.png}
+    \caption{Niveau de détail élevé.}
+  \end{subfigure}
+  \caption{Comparaison des niveaux de détail du bouton.}
+\end{figure}
+
+\subsection{Paramétrisation}
+
+Nous avons testé plusieurs combinaisons de paramètres avant de retenir la version finale du bouton. Les paramètres \texttt{width}, \texttt{length}, \texttt{baseHeight}, \texttt{buttonHeight}, \texttt{borderThickness}, \texttt{cornerRadius} et \texttt{detail} ont été ajustés dans OpenSCAD afin de comparer différentes proportions. La version finale a été choisie car elle offrait le meilleur équilibre entre lisibilité, forme reconnaissable et intégration propre dans Unity.
+
+\subsection{Import dans Unity}
+
+Pour intégrer l'objet dans Unity, nous avons suivi les étapes suivantes :
+
+\begin{itemize}
+  \item Export du fichier STL depuis OpenSCAD (\textit{File > Export > Export as STL}).
+  \item Import du fichier STL dans Unity via \textit{Assets > Import New Asset}.
+  \item Création d'un matériau (\textit{Material}) dans Unity et assignation au mesh pour reproduire les couleurs (orange pour le bouton « A » et bleu pour « B »).
+  \item Positionnement de l'objet dans la scène Unity et ajout d'un \textit{Collider} pour les interactions.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-19-32.png}
+    \caption{Bouton importé dans Unity.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-21-28.png}
+    \caption{Bouton avec matériau appliqué.}
+  \end{subfigure}
+  \caption{Intégration du bouton dans Unity.}
+\end{figure}
+
+% ============================================================
+\section{Objet 3D — Wagon (impression 3D)}
+
+\textbf{Fichiers :} \texttt{02\_WAGON\_3D / train.scad} \quad|\quad \texttt{train.stl}
+
+\subsection{Description}
+
+L'objet modélisé est un petit wagon inspiré du jeu \textit{Ticket to Ride}. Le modèle reprend le style simplifié des pions du jeu avec une géométrie volontairement simple afin de faciliter l'impression 3D.
+
+\subsection{Paramètres}
+
+Le modèle possède plusieurs paramètres permettant de modifier sa forme :
+
+\begin{itemize}
+  \item \texttt{L} : longueur du wagon
+  \item \texttt{W} : largeur du wagon
+  \item \texttt{H} : hauteur du wagon
+  \item \texttt{detail} : niveau de détail du modèle
+\end{itemize}
+
+Comme pour le bouton interactif, ces paramètres sont modifiables directement dans OpenSCAD via le panneau de personnalisation.
+
+\subsection{Niveaux de détail}
+
+\begin{itemize}
+  \item \textbf{Niveau 1} : structure de base (corps principal, toit arrondi et roues).
+  \item \textbf{Niveau 2} : ajout des fenêtres sur les deux côtés du wagon.
+  \item \textbf{Niveau 3} : ajout de marchepieds.
+\end{itemize}
+
+Nous avons imprimé la version avec le niveau 3 (la plus détaillée).
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.30\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-42-10.png}
+    \caption{Niveau 1.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.30\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-42-50.png}
+    \caption{Niveau 2.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.30\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/screenshot-22-43-00.png}
+    \caption{Niveau 3.}
+  \end{subfigure}
+  \caption{Niveaux de détail du wagon.}
+\end{figure}
+
+\subsection{Choix de conception}
+
+Le modèle a été conçu avec des formes simples (cubes et cylindres) afin de conserver un code lisible et facilement modifiable. L'objectif était d'obtenir un objet reconnaissable tout en restant compatible avec une première approche de la modélisation paramétrique sous OpenSCAD.
+
+\subsection{Impression}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{images/screenshot-22-50-33.png}
+  \caption{Orientation du wagon pour l'impression (rotation à 90° sur l'axe Z).}
+\end{figure}
+
+Après quelques tests, nous avons remarqué qu'il était préférable de faire pivoter le wagon à 90 degrés (axe Z) pour mieux imprimer les roues. Nous avons aussi constaté qu'il fallait davantage espacer les wagons lorsqu'il y en avait plusieurs.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/IMG_0949.jpeg}
+    \caption{Wagon imprimé — vue 1.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/IMG_0950.jpeg}
+    \caption{Wagon imprimé — vue 2.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/IMG_0952.jpeg}
+    \caption{Wagon imprimé — vue 3.}
+  \end{subfigure}
+  \caption{Photos du wagon après impression 3D.}
+\end{figure}
+
+% ============================================================
+\section{Objet 2D — Plateau de jeu (découpe + gravure)}
+
+\textbf{Fichiers :} \texttt{03\_2D / SVG\_Final.svg}
+
+\subsection{Description}
+
+Nous avons réinterprété le plateau de jeu des \textit{Aventuriers du Rail} en version locale, centrée sur la ville de Genève et ses environs. Il représente plusieurs lieux que nous connaissons bien (Battelle, Unimail, Sciences II, etc.) reliés par des chemins, à la manière d'un jeu de parcours ferroviaire.
+
+Le fichier SVG a été réalisé sous Inkscape et est organisé en deux types d'éléments :
+
+\begin{itemize}
+  \item \textbf{Découpe} : contour extérieur du plateau.
+  \item \textbf{Gravure + contour} : noms des lieux, lignes de trajet, la grille des points et la délimitation intérieure.
+  \item \textbf{Gravure} : les cercles des villes.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/screenshot-23-07-20.png}
+  \caption{Aperçu du plateau de jeu sous Inkscape.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/screenshot-11-13-45.png}
+  \caption{Détail du plateau — organisation des calques.}
+\end{figure}
+
+\subsection{Lien avec les objets 3D}
+
+Les wagons modélisés en 3D (objet \#2) ont été pensés pour être utilisés comme pièces de jeu pour ce plateau. Le plateau, les wagons et les pions forment ainsi un ensemble cohérent pour le jeu de société version Genève.
+
+% ============================================================
+\section{Le jeu au complet}
+
+L'ensemble des trois objets — le plateau 2D, les wagons 3D et le bouton interactif — constitue un projet intégré combinant modélisation paramétrique, impression 3D, découpe laser et développement de jeu vidéo.
+
+\end{document}

@@ -52,6 +52,6 @@ Les deux objets 3D ont été modélisés avec **OpenSCAD**. Ils sont paramétriq
 └── README.md
 
 ## Notice sur l’utilisation de l’IA
-L’IA a été utilisée comme outil d’assistance dans ce projet, notamment pour la reformulation et la structuration du README et de certaines explications du rapport.
+L’IA a été utilisée comme outil d’assistance dans ce projet, notamment pour la reformulation et la structuration du README et de certaines explications du rapport (ainsi que pour la conversion du .tex file).
 
 Les choix de conception, la modélisation des objets 3D sous OpenSCAD, la création du plateau SVG sous Inkscape, les tests d’impression 3D, la découpe laser et l’intégration dans Unity ont été réalisés par nous-même.
