@@ -50,6 +50,8 @@ Les deux objets 3D ont été modélisés avec **OpenSCAD**. Ils sont paramétriq
 ├── .gitignore
 ├── RAPPORT_FINAL_J.pdf
 └── README.md
+```
+
 
 ## Notice sur l’utilisation de l’IA
 L’IA a été utilisée comme outil d’assistance dans ce projet, notamment pour la reformulation et la structuration du README et de certaines explications du rapport (ainsi que pour la conversion du .tex file).
